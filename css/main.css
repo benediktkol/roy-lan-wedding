@@ -1,33 +1,240 @@
 :root{
-  --bg: #f6f2ee;
-  --ink: #1f1f1f;
-  --pink: #e25a8a;
-  --orange: #c97a2c;
-  --blue: #2f5fa8;
-  --paper: #ffffff;
+  --bg: #f5f1eb;
+  --ink: #5d4037;
+  --pink: #d4816b;
+  --orange: #e8a87c;
+  --blue: #8fb3d6;
+  --paper: #faf8f5;
+  --cream: #f5f1eb;
+  --gold: #daa520;
 }
 
-*{ box-sizing:border-box; }
-body{
-  margin:0;
-  min-height:100vh;
-  display:grid;
-  place-items:center;
-  background:#ece7e2;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--ink);
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&family=Stencil+Four:wght@400&display=swap');
+
+/* Force all elements to have transparent background */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url('../background.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Orbitron', monospace;
+  color: var(--ink);
+  font-weight: 600;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Create responsive watercolor border frame */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Add floral corner decorations */
+body::after {
+  content: '🌸';
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 40px;
+  opacity: 0.7;
+  transform: rotate(-15deg);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Additional decorative elements around the frame */
+.watercolor-decoration {
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Top right floral cluster */
+.watercolor-decoration:nth-child(1)::before {
+  content: '🌸🌿🌼';
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  font-size: 35px;
+  opacity: 0.6;
+  transform: rotate(25deg);
+}
+
+/* Bottom left camera and flowers */
+.watercolor-decoration:nth-child(1)::after {
+  content: '📷🌸';
+  position: fixed;
+  bottom: 60px;
+  left: 50px;
+  font-size: 30px;
+  opacity: 0.6;
+  transform: rotate(-20deg);
+}
+
+/* Bottom right bouquet */
+.watercolor-decoration:nth-child(2)::before {
+  content: '🌹🌿🌸🌼';
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  font-size: 28px;
+  opacity: 0.6;
+  transform: rotate(15deg);
+}
+
+/* Top left disco ball area */
+.watercolor-decoration:nth-child(2)::after {
+  content: '✨🎆';
+  position: fixed;
+  top: 80px;
+  left: 80px;
+  font-size: 25px;
+  opacity: 0.6;
+  animation: sparkle 3s infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.1); }
+}
+
+/* Create expandable white center area */
+.main-content {
+  min-height: calc(100vh - 160px);
+  margin: 80px;
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    margin: 40px 20px;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin: 20px 10px;
+    padding: 20px 15px;
+  }
+}
+
+/* Add watercolor-style decorative elements around content */\n.container-fluid {\n  position: relative;\n}\n\n.container-fluid::before {\n  content: '\ud83c\udf38';\n  position: absolute;\n  top: -20px;\n  left: 20px;\n  font-size: 30px;\n  opacity: 0.7;\n  transform: rotate(-15deg);\n}\n\n.container-fluid::after {\n  content: '\ud83c\udf3f';\n  position: absolute;\n  top: -10px;\n  right: 30px;\n  font-size: 25px;\n  opacity: 0.7;\n  transform: rotate(20deg);\n}\n\n/* Add subtle floral corner decorations */\n.heart-framed-couple {\n  position: relative;\n}\n\n.heart-framed-couple::before {\n  content: '\ud83c\udf3c \ud83c\udf38';\n  position: absolute;\n  top: -30px;\n  left: -40px;\n  font-size: 20px;\n  opacity: 0.6;\n  transform: rotate(-25deg);\n}\n\n.heart-framed-couple::after {\n  content: '\ud83c\udf3f \ud83c\udf3c';\n  position: absolute;\n  bottom: -20px;\n  right: -40px;\n  font-size: 18px;\n  opacity: 0.6;\n  transform: rotate(25deg);\n}\n\n/* Couple photo styling - Full screen hero */
+.couple-photo {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+}
+
+.main-photo {
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 700px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.15),
+    inset 0 0 0 0px rgba(255,255,255,0.95);
+  transition: transform 0.3s ease;
+  filter: 
+    sepia(0.08) 
+    saturate(1.05) 
+    contrast(1.03)
+    brightness(1.02);
+  display: block;
+}
+
+.main-photo:hover {
+  transform: scale(1.01);
+}
+
+/* Overlay gradient for better text readability */
+.couple-photo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.1) 0%,
+    rgba(255,255,255,0.05) 50%,
+    rgba(255,255,255,0.15) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Remove decorative flowers for clean hero look */
+.couple-photo::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .main-photo {
+    height: 50vh;
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-photo {
+    height: 45vh;
+    min-height: 300px;
+  }
+}
+
+/* Remove old heart-framed-couple styles */
+.container,
+.container-fluid,
+.row,
+.col-md-10,
+.col-md-offset-1,
+.col-sm-12,
+div {
+  background: transparent !important;
+}
+
+/* Ensure all Bootstrap elements have transparent background */
+.bg-primary,
+.bg-success,
+.bg-info,
+.bg-warning,
+.bg-danger {
+  background-color: transparent !important;
 }
 
 .card{
-  width:min(520px, 92vw);
-  padding:42px 38px 34px;
-  border-radius:10px;
-  background:
-	radial-gradient(rgba(0,0,0,.06) 1px, transparent 1.4px) 0 0/18px 18px,
-	radial-gradient(rgba(0,0,0,.035) 1px, transparent 1.4px) 9px 9px/18px 18px,
-	linear-gradient(var(--bg), var(--bg));
-  box-shadow: 0 14px 34px rgba(0,0,0,.14);
-  border: 1px solid rgba(0,0,0,.06);
+  width: 100%;
+  max-width: none;
+  padding: 42px 0 34px;
+  background: transparent;
+  margin: 0 auto;
 }
 
 .title{
@@ -65,76 +272,115 @@ body{
 }
 
 .timeline{
-  margin: 6px auto 0;
+  margin: 40px auto 0;
   padding: 0;
   list-style:none;
   position:relative;
-  max-width:360px;
+  max-width: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-/* vertical line */
+/* Remove vertical line - using flowing dotted lines instead */
 .timeline::before{
-  content:"";
-  position:absolute;
-  left: 16px;
-  top: 2px;
-  bottom: 2px;
-  width:4px;
-  background: var(--pink);
-  border-radius:999px;
-  opacity:.9;
+  display: none;
 }
 
 .event{
   position:relative;
-  padding: 10px 0 10px 52px;
-  min-height:58px;
+  padding: 30px 20px;
+  min-height:120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
-/* dot */
-.event::before{
+
+/* Flowing dotted lines between events */
+.event:not(:last-child)::after{
   content:"";
   position:absolute;
-  left: 7px;
-  top: 18px;
-  width:20px;
-  height:20px;
-  background: var(--pink);
-  border-radius:999px;
-  box-shadow: 0 0 0 4px rgba(226,90,138,.15);
+  bottom: -15px;
+  left: 50%;
+  width: 60px;
+  height: 30px;
+  border: 2px dotted #bbb;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0 0 30px 30px;
+  transform: translateX(-50%);
+}
+
+/* Event illustration styling */
+.event-illustration {
+  font-size: 50px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+  filter: grayscale(0.3) sepia(0.2);
+}
+
+/* Event content styling */
+.event-content {
+  text-align: center;
+  position: relative;
+  width: 100%;
 }
 
 .time{
-  font-weight:900;
-  letter-spacing:.04em;
-  font-size:22px;
+  font-weight:700;
+  font-size:28px;
+  color:#2d2d2d;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 8px;
 }
 .desc{
-  margin-top:6px;
-  font-size:18px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  font-weight:800;
+  font-size:22px;
+  font-weight:500;
+  color:#2d2d2d;
+  font-family: 'Dancing Script', cursive;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
-.desc.orange{ color:var(--orange); }
-.desc.blue{ color:var(--blue); }
 
-.footer{
+/* Remove old icon styling */
+.event-icon {
+  display: none;
+}
+
+.desc.ceremony::before,
+.desc.photos::before,
+.desc.dinner::before,
+.desc.speeches::before,
+.desc.cake::before,
+.desc.dance::before,
+.desc.sendoff::before {
+  content: '';
+}
+
+.signature{
   text-align:center;
-  margin-top:22px;
-  color:var(--pink);
-  font-family: ui-rounded, "Comic Sans MS", "Bradley Hand", "Segoe Print", cursive;
-  font-size:34px;
-  font-weight:800;
-  letter-spacing:.02em;
+  margin-top:40px;
+  color:#d4816b;
+  font-family: 'Dancing Script', cursive;
+  font-size:28px;
+  font-weight:600;
+  font-style: italic;
 }
 
 /* small screens */
 @media (max-width:420px){
   .card{ padding:34px 22px 28px; }
-  .title .top{ font-size:28px; }
-  .title .script{ font-size:28px; }
-  .time{ font-size:20px; }
-  .desc{ font-size:16px; }
+  .title .top{ font-size:36px; }
+  .time{ font-size:24px; }
+  .desc{ font-size:18px; }
   .timeline{ max-width: 100%; }
+  .event-illustration { font-size: 40px; }
+  .event { max-width: 280px; }
 }
 
 @font-face {
@@ -468,11 +714,16 @@ body{
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 h1, h3, .mystery {
-  font-family: MagicalMysteryTour;
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 .mystery a {
