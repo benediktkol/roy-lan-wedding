@@ -1539,6 +1539,17 @@ a, a:active, a:visited, a:hover {
   outline: none;
 }
 
+/* Dark navigation state when past carousel */
+.nav-dark .nav-link {
+  color: #2c2c2c !important;
+  text-shadow: none !important;
+}
+
+.nav-dark .nav-link:hover {
+  color: #1a1a1a !important;
+  text-shadow: none !important;
+}
+
 /* Hide top navigation on mobile */
 @media (max-width: 768px) {
   .top-nav-container {
@@ -1755,7 +1766,7 @@ a, a:active, a:visited, a:hover {
 
 .rsvp-subtitle {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #000;
   margin: 0 0 40px 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 300;
@@ -1789,7 +1800,7 @@ a, a:active, a:visited, a:hover {
 .contact-info p {
   margin: 10px 0;
   font-size: 16px;
-  color: #ccc;
+  color: #000;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 

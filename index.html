@@ -247,6 +247,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// Navigation color change on scroll
+window.addEventListener('scroll', function() {
+  const carousel = document.querySelector('.carousel-section');
+  const navContainer = document.querySelector('.top-nav-container');
+  
+  if (carousel && navContainer) {
+    const carouselRect = carousel.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Debug: log values to console
+    console.log('Scroll position:', scrollTop);
+    console.log('Carousel bottom:', carousel.offsetTop + carousel.offsetHeight);
+    console.log('Carousel rect bottom:', carouselRect.bottom);
+    
+    // Use viewport-based detection instead
+    if (carouselRect.bottom < 200) {
+      // Past the carousel - add dark class
+      navContainer.classList.add('nav-dark');
+      console.log('Added nav-dark class');
+    } else {
+      // In the carousel - remove dark class
+      navContainer.classList.remove('nav-dark');
+      console.log('Removed nav-dark class');
+    }
+  }
+});
 </script>
 
 <div id="confetti"></div>
