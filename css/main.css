@@ -222,6 +222,15 @@ html, body {
   letter-spacing: 0.2em;
 }
 
+.wedding-location {
+  font-size: clamp(16px, 3vw, 22px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 15px 0 0;
+  letter-spacing: 0.1em;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
 /* Remove old header and photo sections */
 .header-section,
 .couple-photo {
@@ -1166,7 +1175,7 @@ a, a:active, a:visited, a:hover {
   }
   
   .carousel-slide[data-bg="images/assets/vietnam.gif"] {
-    background-image: url('../images/assets/vietnam_mobile.gif') !important;
+    background-image: url('../images/assets/vietnam_mobile.jpg') !important;
   }
   
   .carousel-slide[data-bg="images/assets/grocery.gif"] {
@@ -1174,7 +1183,7 @@ a, a:active, a:visited, a:hover {
   }
 
   .carousel-slide[data-bg="images/assets/proposal.gif"] {
-    background-image: url('../images/assets/proposal_mobile.gif') !important;
+    background-image: url('../images/assets/proposal_mobile.jpg') !important;
   }
 }
 
@@ -1656,14 +1665,16 @@ a, a:active, a:visited, a:hover {
   line-height: 1.6;
   font-weight: 300;
   padding: 0 30px;
-  max-height: 0;
-  overflow: hidden;
+  max-height: 0 !important;
+  overflow: hidden !important;
   transition: max-height 0.3s ease, padding 0.3s ease;
+  opacity: 0;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 200px;
-  padding: 0 30px 25px;
+  max-height: 200px !important;
+  padding: 0 30px 25px !important;
+  opacity: 1;
 }
 
 /* Responsive adjustments for FAQ */
@@ -1687,11 +1698,13 @@ a, a:active, a:visited, a:hover {
   
   .faq-answer {
     font-size: 15px;
-    padding: 0 25px 20px;
+    padding: 0 25px !important;
+    max-height: 0 !important;
   }
   
   .faq-item.active .faq-answer {
-    padding: 0 25px 20px;
+    padding: 0 25px 20px !important;
+    max-height: 150px !important;
   }
 }
 
@@ -1711,11 +1724,13 @@ a, a:active, a:visited, a:hover {
   
   .faq-answer {
     font-size: 14px;
-    padding: 0 20px 18px;
+    padding: 0 20px !important;
+    max-height: 0 !important;
   }
   
   .faq-item.active .faq-answer {
-    padding: 0 20px 18px;
+    padding: 0 20px 18px !important;
+    max-height: 120px !important;
   }
 }
 

@@ -11,15 +11,11 @@ function initCarousel() {
     slides.forEach((slide, index) => {
         const bgImage = slide.getAttribute('data-bg');
         if (bgImage) {
-            // Set background image directly
             slide.style.backgroundImage = `url('${bgImage}')`;
-            console.log(`Setting background: ${bgImage}`);
         }
     });
     
     showSlide(0);
-    
-    // Auto-transition removed - manual navigation only
 }
 
 // Show specific slide
@@ -94,3 +90,6 @@ function handleSwipe() {
         }
     }
 }
+
+// Initialize carousel when page loads
+window.addEventListener('load', initCarousel);
