@@ -1,11 +1,12 @@
 
 <!doctype html>
-<html>
+<html style="scroll-behavior: smooth;">
   <head>
 	<meta name="generator" content="Hugo 0.42.2" />
     <title> Roy &amp; Lan </title>
     <meta name="description" content="A compilation of our favorite stories and photos from when we met until now." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="images/assets/bicycle.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,11 +15,6 @@
     <link rel="stylesheet" href="slick/slick.css" />
     <link rel="stylesheet" href="slick/slick-theme.css" />
     <link rel="stylesheet" href="css/main.css" />
-    
-      <meta property="og:image" content="https://estelle.and.dzello.com/images/assets/heart-frame.png" />
-      <meta property="og:image:width" content="1600" />
-      <meta property="og:image:height" content="945" />
-    
   </head>
   <body>
 
@@ -83,12 +79,23 @@
     <span class="dot" onclick="currentSlide(5)"></span>
   </div>
   
+  <!-- Top Navigation (Desktop Only) -->
+  <div class="top-nav-container">
+    <div class="top-nav-left">
+      <a href="#timeline-section" class="nav-link">Timeline</a>
+      <a href="#faq-section" class="nav-link">FAQs</a>
+    </div>
+    <div class="top-nav-right">
+      <a href="#rsvp-section" class="rsvp-button-overlay">RSVP</a>
+    </div>
+  </div>
+  
   <!-- Particle effects background -->
   <div class="particles"></div>
 </section>
 
 <!-- Order of the Day -->
-<section class="order-of-day-section">
+<section id="timeline-section" class="order-of-day-section">
   <div class="order-container">
     <h2 class="order-title">wedding timeline</h2>
     
@@ -144,13 +151,57 @@
   </div>
 </section>
 
+<!-- RSVP Section -->
+<section id="rsvp-section" class="rsvp-section">
+  <h2 class="rsvp-title">RSVP</h2>
+  <p class="rsvp-subtitle">Please let us know if you'll be joining us for our special day</p>
+  
+  <div class="rsvp-form-container">
+    <div style="width:100%;height:500px;" data-fillout-id="2sGpvAhEuUus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq-section" class="faq-section">
+  <h2 class="faq-title">FAQs</h2>
+  
+  <div class="faq-container">
+    <div class="faq-item">
+      <h3 class="faq-question">What should I wear?</h3>
+      <p class="faq-answer">We're having a semi-formal celebration. Think cocktail attire - dress to impress but keep it comfortable for dancing!</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-question">Will there be vegetarian/dietary options?</h3>
+      <p class="faq-answer">Yes! We'll have options for various dietary requirements. Please let us know about any specific needs when you RSVP.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-question">Can I bring a plus one?</h3>
+      <p class="faq-answer">Due to venue capacity, we can only accommodate guests specifically named on your invitation. Thank you for understanding!</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-question">What time should I arrive?</h3>
+      <p class="faq-answer">Please arrive by 2:00 PM for the ceremony. Check our timeline above for the full schedule of events.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-question">Will there be parking available?</h3>
+      <p class="faq-answer">Yes, there's plenty of free parking available at the venue. We'll also provide directions and transportation details closer to the date.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-question">Can I take photos during the ceremony?</h3>
+      <p class="faq-answer">We'd love for you to enjoy the moment with us! Please feel free to take photos, but we ask that you keep flash photography to a minimum during the ceremony.</p>
+    </div>
+  </div>
+</section>
+
 <!-- Footer -->
 <section class="footer-section">
-  <h2 class="footer-title">We hope you can make it!</h2>
-  <a href="/rsvp/" class="rsvp-button">RSVP</a>
   <div class="contact-info">
-    <p>Questions? <a href="mailto:royandlan@example.com">Email Us</a></p>
-    <p><a href="/story/it-began-in-thailand/">Read our story</a></p>
+    <p>Questions? WhatsApp us!</a></p>
   </div>
 </section>
 
@@ -171,10 +222,34 @@
   ga('send', 'pageview');
 </script>
 
+<!-- Fillout Form Script -->
+<script src="https://server.fillout.com/embed/v1/"></script>
 
-</body>
-</html>
-
+<!-- FAQ Collapsible Functionality -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', function() {
+      // Close all other FAQ items
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+        }
+      });
+      
+      // Toggle current FAQ item
+      item.classList.toggle('active');
+    });
+  });
+});
+</script>
 
 <div id="confetti"></div>
 <script type="text/javascript" src="js/confetti.js"></script>
+
+</body>
+</html>
