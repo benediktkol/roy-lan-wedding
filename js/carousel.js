@@ -20,6 +20,15 @@ function initCarousel() {
 
 // Show specific slide
 function showSlide(index) {
+    // Collapse any expanded text in all slides
+    slides.forEach(slide => {
+        slide.classList.remove('text-expanded');
+        const textWrapper = slide.querySelector('.slide-text-wrapper');
+        if (textWrapper) {
+            textWrapper.classList.remove('expanded');
+        }
+    });
+    
     // Remove active class from all slides and dots
     slides.forEach(slide => slide.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
