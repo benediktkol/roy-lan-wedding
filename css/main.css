@@ -341,7 +341,7 @@ html, body {
 
 .order-of-day-section .timeline-time {
   text-align: right;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: #d4816b;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -428,7 +428,7 @@ html, body {
   }
   
   .order-of-day-section .timeline-event {
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 0.08em;
   }
 }
@@ -455,7 +455,7 @@ html, body {
   }
   
   .order-of-day-section .timeline-time {
-    font-size: 11px;
+    font-size: 13px;
   }
   
   .order-of-day-section .timeline-icon {
@@ -467,7 +467,7 @@ html, body {
   }
   
   .order-of-day-section .timeline-event {
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.05em;
   }
 }
@@ -1314,7 +1314,7 @@ a, a:active, a:visited, a:hover {
 /* Responsive slide text */
 @media (max-width: 768px) {
   .slide-text {
-    font-size: 11px;
+    font-size: 14px;
   }
   
   .slide-text-toggle {
@@ -1326,7 +1326,7 @@ a, a:active, a:visited, a:hover {
 
 @media (max-width: 480px) {
   .slide-text {
-    font-size: 11px;
+    font-size: 14px;
   }
   
   .slide-text-wrapper.expanded .slide-text {
@@ -1414,6 +1414,20 @@ a, a:active, a:visited, a:hover {
 /* Ensure slide content stays above overlay */
 .carousel-slide .slide-content {
   z-index: 2;
+}
+
+/* Hide slide title when text is expanded to prevent overlay on navigation */
+.carousel-slide.text-expanded .slide-title {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Ensure slide title is visible when text is not expanded */
+.carousel-slide .slide-title {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* Expanded text styling */
@@ -2075,7 +2089,7 @@ a, a:active, a:visited, a:hover {
   }
   
   .faq-answer {
-    font-size: 13px;
+    font-size: 14px;
     padding: 0 18px !important;
     max-height: 0 !important;
   }
